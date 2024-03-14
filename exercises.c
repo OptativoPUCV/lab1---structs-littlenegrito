@@ -55,8 +55,8 @@ int *filterEvenNumbers(int arr[], int size, int *newSize) {
         sizetemp ++;
       }
     }
-
   *newSize = sizetemp;
+  return newArr;
 }
 
 /*
@@ -95,7 +95,20 @@ Descripción: Escribe una función que tome un arreglo y su tamaño,
 y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
   0 si no está ordenado, y -1 si está ordenado en orden descendente.
 */
-int checkSorted(int arr[], int size) { return -2; }
+
+int checkSorted(int arr[], int size) { 
+  bool creciente true;
+  bool decreciente false;
+  for(int i = 0; i < total - 1; k++){
+    if(arr[i] <= arr[i+1]){
+      creciente = false;
+      decreciente = true;
+    }
+  }
+  if(creciente) return 1;
+  elif(decreciente) return -1;
+  else: return 0;
+}
 
 /*
 Ejercicio 6: Información de una Biblioteca
@@ -117,7 +130,13 @@ typedef struct {
 } Libro;
 
 void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
-                      int anioNacimiento, int anioPublicacion) {}
+                      int anioNacimiento, int anioPublicacion) {
+  libro.anioPublicacion = anioPublicacion;
+  libro->autor.anioNacimiento = anioNacimiento;
+
+                
+    
+                      }
 
 /*
 Ejercicio 7: Lista enlazada de números
