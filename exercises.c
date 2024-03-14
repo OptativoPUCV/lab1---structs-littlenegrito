@@ -25,12 +25,12 @@ invierta el orden de sus elementos.
 */
 void reverseArray(int arr[], int size) {
   int i = 0;
+  int temp = 0;
   int k = size - 1;
-  while(true){
-    if(i == size) break;
-    int temp = arr[i];
+  while(i < k){
+    temp = arr[i];
     arr[i] = arr[k];
-    arr[k] = arr[i];
+    arr[k] = temp;
   }
 }
 
@@ -97,17 +97,17 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
 */
 
 int checkSorted(int arr[], int size) { 
-  bool creciente true;
-  bool decreciente false;
-  for(int i = 0; i < total - 1; k++){
+  bool creciente = true;
+  bool decreciente = false;
+  for(int i = 0; i < size - 1; i++){
     if(arr[i] <= arr[i+1]){
       creciente = false;
       decreciente = true;
     }
   }
   if(creciente) return 1;
-  elif(decreciente) return -1;
-  else: return 0;
+  else if (decreciente) return -1;
+  else return 0;
 }
 
 /*
