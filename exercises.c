@@ -130,13 +130,17 @@ typedef struct {
 } Libro;
 
 void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
-                      int anioNacimiento, int anioPublicacion) {
+                      int anioNacimiento, int anioPublicacion) 
+{
   libro.anioPublicacion = anioPublicacion;
   libro->autor.anioNacimiento = anioNacimiento;
+  scanf("%100[\n]s", libro.titulo);
+  getchar();
+
 
                 
     
-                      }
+}
 
 /*
 Ejercicio 7: Lista enlazada de números
