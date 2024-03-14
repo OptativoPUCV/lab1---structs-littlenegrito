@@ -1,5 +1,6 @@
-a #include <ctype.h>
+#include <ctype.h>
 #include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,7 +30,7 @@ void reverseArray(int arr[], int size) {
     if(i = size) break;
     int temp = arr[i];
     arr[i] = arr[k];
-    arr[k] = arr[j];
+    arr[k] = arr[i];
   }
 }
 
@@ -49,8 +50,29 @@ Descripción: Escribe una función que tome dos arreglos
 ordenados de menor a mayor y sus tamaños, y luego fusione estos dos
 arreglos en un tercer arreglo también ordenado de menor a mayor.
 */
+
+int cmp(const void *pivote, const void *elem)
+{
+  int* ptrPivote = (int*) pivote;
+  int* ptrElem = (int*) elem;
+  if(ptrPivote < ptrElem) return true;
+  return false;
+
+}
 void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
-                       int result[]) {}
+                       int result[]) {
+                        int size3 = size1 + size2;
+                        int j = 0;
+                        for(int i = 0; i < size3; i++)
+                        {
+                            if(i < size1) result[i] = arr1[i];
+                            else{
+                                result[i] = arr2[j];
+                                j++;
+                            } 
+                            qsort(result, size3, sizeof(int), cmp);           
+                        }
+                       }
 
 /*
 Ejercicio 5: Comprobación de Ordenación
