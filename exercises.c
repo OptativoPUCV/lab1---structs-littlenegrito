@@ -27,7 +27,7 @@ void reverseArray(int arr[], int size) {
   int i = 0;
   int k = size - 1;
   while(true){
-    if(i = size) break;
+    if(i == size) break;
     int temp = arr[i];
     arr[i] = arr[k];
     arr[k] = arr[i];
@@ -43,9 +43,20 @@ newsize apunta a una dirección válida que no ha sido inicializada con nigún v
 *newsize debe almacenar el tamaño del nuevo arreglo que se retorna.
 */
 int *filterEvenNumbers(int arr[], int size, int *newSize) { 
+  int sizetemp = 0;
   int *newArr = NULL;
-  newArr = (int*) 
-  return NULL; 
+  newArr = (int*) malloc(size * sizeof(int));
+  if(newArr == NULL) exit(EXIT_FAILURE); 
+  for(int i = 0; i < size; i++)
+    {
+      if(arr[i] % 2 == 0)
+      {
+        newArr[sizetemp] = arr[i];
+        sizetemp ++;
+      }
+    }
+
+  *newSize = sizetemp;
 }
 
 /*
@@ -57,8 +68,8 @@ arreglos en un tercer arreglo también ordenado de menor a mayor.
 
 int cmp(const void *pivote, const void *elem)
 {
-  int *ptrPivote = (int *) pivote;
-  int *ptrElem = (int *) elem;
+  int ptrPivote = *(int *) pivote;
+  int ptrElem = *(int *) elem;
   if(ptrPivote < ptrElem) return true;
   return false;
 
@@ -73,9 +84,9 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
                             else{
                                 result[i] = arr2[j];
                                 j++;
-                            } 
-                            qsort(result, size3, sizeof(int), cmp);           
+                            }      
                         }
+                        qsort(result, size3, sizeof(int), cmp);      
                        }
 
 /*
