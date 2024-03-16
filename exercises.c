@@ -82,15 +82,14 @@ void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
                         int j = 0;
                         for(int i = 0; i < size3; i++)
                         {
-                            if(i < size1) result[i] = arr1[i];
-                            else{
-                                result[i] = arr2[j];
-                                j++;
-                            }      
+                          if(i < size1) result[i] = arr1[i];
+                          else{
+                            result[i] = arr2[j];
+                            j++;
+                              }
                         }
                         qsort(result, size3, sizeof(int), cmp);      
                        }
-
 /*
 Ejercicio 5: Comprobación de Ordenación
 Descripción: Escribe una función que tome un arreglo y su tamaño,
