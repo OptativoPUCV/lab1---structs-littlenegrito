@@ -100,15 +100,13 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
 
 int checkSorted(int arr[], int size) { 
   bool creciente = true;
-  bool decreciente = false;
+  bool decreciente = true;
   for(int i = 0; i < size - 1; i++){
-    if(arr[i] <= arr[i+1]){
-      creciente = false;
-      decreciente = true;
-    }
+    if(arr[i] > arr[i+1]) creciente = false;
+    if(arr[i] < arr[i+1]) decreciente = false;
   }
-  if(creciente) return 1;
-  else if (decreciente) return -1;
+  if(creciente && !decreciente) return 1;
+  else if (!creciente && decreciente) return -1;
   else return 0;
 }
 
